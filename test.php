@@ -44,8 +44,12 @@ class Database{
           $stmt->execute([$id]);
         }
 
+        public function aanmelden($naam, $achternaam, $geboortedatum, $email, $password) {
+          $stmt = $this->pdo->prepare("INSERT INTO users (naam,achternaam,geboortedatum,email,wachtwoord) values (?,?,?,?,?)");
+          $stmt->execute([$naam, $achternaam, $geboortedatum, $email, $password]);
+      }
       
-}
+    }
  
  
  
